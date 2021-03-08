@@ -2,12 +2,91 @@ import React, { useEffect, useState } from 'react';
 import './styles.css';
 import api from '../../services/api';
 
-export default function User() {
+export default function User() {    
+
+    const cities = [
+        'Aparecida de Goiânia - GO',
+        'Barbacena - MG',
+        'Belford Roxo - RJ',
+        'Belo Horizonte - MG',
+        'Bento Gonçalves - RS',
+        'Blumenau - SC',
+        'Boa Vista - RR',
+        'Brasília - DF',
+        'Campina Grande - PB',
+        'Campinas - SP',
+        'Campo Grande - MS',
+        'Campos dos Goytacazes - RJ',
+        'Caxias do Sul - RS',
+        'Chapecó - SC',
+        'Criciúma - SC',
+        'Curitiba - PR',
+        'Espera Feliz - MG',
+        'Florianópolis - SC',
+        'Fortaleza - CE',
+        'Foz do Iguaçu - PR',
+        'Goiânia - GO',
+        'Guarulhos - SP',
+        'Hortolândia - SP',
+        'Indaial - SC',
+        'Itaituba - PA',
+        'Joaçaba - SC',
+        'Joinville - SC',
+        'João Pessoa - PB',
+        'Lages - SC',
+        'Leme - SP',
+        'Maringá - PR',
+        'Marília - SP',
+        'Natal - RN',
+        'Niterói - RJ',
+        'Osasco - SP',
+        'Ouro Preto - MG',
+        'Parnaíba - PI',
+        'Paulista - PE',
+        'Porto Alegre - RS',
+        'Recife - PE',
+        'Remote',
+        'Ribeirão Preto - SP',
+        'Rio Branco - AC',
+        'Rio de Janeiro - RJ',
+        'Salto Grande - SP',
+        'Salvador - BA',
+        'Santa Cruz do Sul - RS',
+        'Santo André - SP',
+        'Santo Antônio de Jesus - BA',
+        'Sapucaia do Sul - RS',
+        'São José - SC',
+        'São João do Triunfo - PR',
+        'São Lourenço da Mata - PE',
+        'São Paulo - SP',
+        'São Vicente - SP',
+        'Uberlândia - MG',
+        'Vitória - ES',
+    ];
+
+    const years = [
+        '0-1 years',
+        '0-2 years',
+        '1-2 years',
+        '10-11 year',
+        '11-12 year',
+        '12+ years',
+        '2-3 years',
+        '2-4 years',
+        '3-4 years',
+        '4-5 years',
+        '5-6 years',
+        '6-7 years',
+        '7-8 years',
+        '8-9 years',
+        '9-10 years'
+    ]
+    
     const [candidates, setCandidates] = useState([]);
     const [city, setCity] = useState('');
     const [experience, setExperience] = useState('');
     // const [techs, setTechs] = useState('');
-
+    
     async function SearchCandidates(){
         const response = await api.get(`/candidates`)
 
@@ -22,7 +101,7 @@ export default function User() {
         }
 
         // if(techs){
-        //     filteredCandidates = filteredCandidates.filter(candidate => candidate.technologies.includes(techs));
+            // filteredCandidates = filteredCandidates.filter(candidate => candidate.technologies.map(techs));
         // }
 
         if(filteredCandidates.length > 5){
@@ -30,6 +109,11 @@ export default function User() {
         }
 
         setCandidates(filteredCandidates);
+    }
+
+    async function handleSubmit(e){
+        e.preventDefault();
+        SearchCandidates();
     }
 
     useEffect(() => {
@@ -44,6 +128,29 @@ export default function User() {
             <div className="search-section">
                 <h1>Candidatos para <span>Recrutadores</span></h1>
                 <div className="search-options">
+                    <form onSubmit={handleSubmit}>
+                        <div className="candidate-select-input">
+                            <label htmlFor="cidade">Cidade</label>
+                            <select name="cidade" id="cidade" onChange={e => setCity(e.target.value)}>
+                                <option key='' value=''>Selecione</option>
+                                {cities.map(city =>(
+                                    <option key={city} value={city}>{city}</option>
+                                ))}
+                            </select>
+                        </div>
+                        <div className="candidate-select-input">
+                            <label htmlFor="experiencia">Experiência</label>
+                            <select name="experiencia" id="experiencia" onChange={e => setExperience(e.target.value)}>
+                                <option key='' value=''>Selecione</option>
+                            {years.map(year =>(
+                                <option key={year} value={year}>{year}</option>
+                                ))}
+                            </select>
+                        </div>
+                        <button className="send-button" type="submit">
+                            Buscar
+                        </button>
+                    </form>
                 </div>                
             </div>
 

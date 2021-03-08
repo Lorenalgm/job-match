@@ -1,6 +1,7 @@
 .container-candidates{
     background: var(--background);
     color: var(--font);
+    height: 100vh;
 }
 
 .container-candidates .search-section{
@@ -62,3 +63,4 @@
     width: 10em;
     padding: .3em;
 }
+

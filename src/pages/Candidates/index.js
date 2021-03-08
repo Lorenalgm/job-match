@@ -44,7 +44,7 @@ export default function User() {
             <div className="search-section">
                 <h1>Candidatos para <span>Recrutadores</span></h1>
                 <div className="search-options">
-                
+                    <p>xxxxxxxxxx</p>
                 </div>                
             </div>
 
@@ -52,19 +52,24 @@ export default function User() {
                
                candidates ?
                     (
-                    <div className="repositories">
+                    <div className="candidates">
                         {
                             candidates.map(candidate =>(
-                                <div key={candidate.id} className="repository">
-                                    <h1>{candidate.city}</h1>
-                                    <p>{candidate.experience}</p>
+                                <div key={candidate.id} className="candidate-container">
+                                    <div className="experience"><h2>{candidate.experience}</h2></div>
+                                    <p>Localização: Mora em {candidate.city}</p>
+                                    <p>Cargo: Desenvolvedor(a)</p>
 
-                                    {candidate.technologies.map(tech =>(
-                                        <div key={tech.name}>
-                                            {tech.name}
-                                            {tech.is_main_tech}
-                                        </div>
-                                    ))}
+                                    <h3>Habilidades</h3>
+
+                                    <div className="techs">
+                                        {candidate.technologies.map(tech =>(
+                                            <div className="tech-container" key={tech.name}>
+                                                {tech.name}
+                                                {tech.is_main_tech}
+                                            </div>
+                                        ))}
+                                    </div>
                                 </div>
                             ))
                         }

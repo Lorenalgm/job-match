@@ -1,0 +1,55 @@
+.container-candidates{
+    background: var(--background);
+    color: var(--font);
+}
+
+.container-candidates .search-section{
+    text-align: center;
+    background: #ffff;
+    height: 15em;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.container-candidates .search-section h1{
+    font-weight: normal;
+}
+
+.container-candidates .search-section span{
+    font-weight: bold;
+    color: var(--primary);
+}
+
+.container-candidates .search-section .search-options{
+    background: var(--background);
+}
+
+.candidates{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.container-candidates .candidate-container{
+    background: #ffff;
+    width: 30em;
+    margin-top: 1em;
+    border-radius: 8px;
+    padding: 1em;
+}
+
+.container-candidates .candidate-container .techs{
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.container-candidates .candidate-container .tech-container{
+    background: var(--background);
+    margin-top: .3em;
+    margin-right: .3em;
+    width: 10em;
+    padding: .3em;
+}

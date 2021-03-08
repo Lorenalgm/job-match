@@ -31,6 +31,7 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    flex-wrap: wrap;
 }
 
 .container-candidates .candidate-container{
@@ -39,6 +40,14 @@
     margin-top: 1em;
     border-radius: 8px;
     padding: 1em;
+}
+
+.container-candidates .candidate-container .experience{
+    background: var(--primary);
+    width: 8em;
+    text-align: center;
+    color: var(--background);
+    border-radius: 5px;
 }
 
 .container-candidates .candidate-container .techs{

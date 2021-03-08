@@ -6,7 +6,7 @@ export default function User() {
     const [candidates, setCandidates] = useState([]);
     const [city, setCity] = useState('');
     const [experience, setExperience] = useState('');
-    const [techs, setTechs] = useState('');
+    // const [techs, setTechs] = useState('');
 
     async function SearchCandidates(){
         const response = await api.get(`/candidates`)
@@ -44,7 +44,6 @@ export default function User() {
             <div className="search-section">
                 <h1>Candidatos para <span>Recrutadores</span></h1>
                 <div className="search-options">
-                    <p>xxxxxxxxxx</p>
                 </div>                
             </div>
 

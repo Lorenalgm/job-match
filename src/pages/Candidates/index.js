@@ -4,18 +4,41 @@ import api from '../../services/api';
 
 export default function User() {
     const [candidates, setCandidates] = useState([]);
+    const [city, setCity] = useState('');
+    const [experience, setExperience] = useState('');
+    const [techs, setTechs] = useState('');
 
-    useEffect(() => {
-        
-        async function SearchCandidates(){
-            const response = await api.get(`/candidates`)
-            setCandidates(response.data);
+    async function SearchCandidates(){
+        const response = await api.get(`/candidates`)
+
+        let filteredCandidates = response.data;
+
+        if(city){
+            filteredCandidates = filteredCandidates.filter(candidate => candidate.city === city);
         }
 
+        if(experience){
+            filteredCandidates = filteredCandidates.filter(candidate => candidate.experience === experience);
+        }
+
+        // if(techs){
+        //     filteredCandidates = filteredCandidates.filter(candidate => candidate.technologies.includes(techs));
+        // }
+
+        if(filteredCandidates.length > 5){
+            filteredCandidates = filteredCandidates.slice(0,5);
+        }
+
+        setCandidates(filteredCandidates);
+    }
+
+    useEffect(() => {
+               
         SearchCandidates();
         
     }, []);
-
+  
+  
     return (
         <div className="container-candidates">
             <div className="search-section">
@@ -32,9 +55,9 @@ export default function User() {
                     <div className="repositories">
                         {
                             candidates.map(candidate =>(
-                                <div key={candidate._id} className="repository">
-                                    {candidate.city}
-                                    {candidate.experience}
+                                <div key={candidate.id} className="repository">
+                                    <h1>{candidate.city}</h1>
+                                    <p>{candidate.experience}</p>
 
                                     {candidate.technologies.map(tech =>(
                                         <div key={tech.name}>

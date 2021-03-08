@@ -120,7 +120,7 @@ export default function User() {
                
         SearchCandidates();
         
-    }, []);
+    });
   
   
     return (

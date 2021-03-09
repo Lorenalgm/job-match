@@ -1,5 +1,7 @@
-.container-candidates{
+body{
     background: var(--background);
+}
+.container-candidates{
     color: var(--font);
     height: 100vh;
 }
@@ -7,7 +9,7 @@
 .container-candidates .search-section{
     text-align: center;
     background: #ffff;
-    height: 15em;
+    height: 20em;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -25,6 +27,25 @@
 
 .container-candidates .search-section .search-options{
     background: var(--background);
+    padding: 1em;
+}
+
+.container-candidates .search-section .search-options form{
+    text-align: left;
+}
+
+.container-candidates .search-section .search-options form div{
+    margin-bottom: 1em;
+}
+
+.send-button{
+    background: var(--primary);
+    color: var(--background);
+    font-weight: bold;
+    font-size: 18px;
+    border-radius: 8px;
+    border: none;
+    padding: .5em 2em;
 }
 
 .candidates{

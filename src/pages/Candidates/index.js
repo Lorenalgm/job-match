@@ -85,30 +85,12 @@ export default function User() {
     const [candidates, setCandidates] = useState([]);
     const [city, setCity] = useState('');
     const [experience, setExperience] = useState('');
-    // const [techs, setTechs] = useState('');
+    const [techs, setTechs] = useState('');
     
     async function SearchCandidates(){
-        const response = await api.get(`/candidates`)
+        const response = await api.get(`/candidates/?city=${city}&experience=${experience}&techs=${techs}`);
 
-        let filteredCandidates = response.data;
-
-        if(city){
-            filteredCandidates = filteredCandidates.filter(candidate => candidate.city === city);
-        }
-
-        if(experience){
-            filteredCandidates = filteredCandidates.filter(candidate => candidate.experience === experience);
-        }
-
-        // if(techs){
-            // filteredCandidates = filteredCandidates.filter(candidate => candidate.technologies.map(techs));
-        // }
-
-        if(filteredCandidates.length > 5){
-            filteredCandidates = filteredCandidates.slice(0,5);
-        }
-
-        setCandidates(filteredCandidates);
+        setCandidates(response.data);
     }
 
     async function handleSubmit(e){
@@ -130,7 +112,7 @@ export default function User() {
                 <div className="search-options">
                     <form onSubmit={handleSubmit}>
                         <div className="candidate-select-input">
-                            <label htmlFor="cidade">Cidade</label>
+                            <label htmlFor="cidade">Cidade:</label>
                             <select name="cidade" id="cidade" onChange={e => setCity(e.target.value)}>
                                 <option key='' value=''>Selecione</option>
                                 {cities.map(city =>(
@@ -139,7 +121,7 @@ export default function User() {
                             </select>
                         </div>
                         <div className="candidate-select-input">
-                            <label htmlFor="experiencia">Experiência</label>
+                            <label htmlFor="experiencia">Experiência:</label>
                             <select name="experiencia" id="experiencia" onChange={e => setExperience(e.target.value)}>
                                 <option key='' value=''>Selecione</option>
                             {years.map(year =>(

@@ -85,7 +85,7 @@ export default function User() {
     const [candidates, setCandidates] = useState([]);
     const [city, setCity] = useState('');
     const [experience, setExperience] = useState('');
-    const [techs, setTechs] = useState('');
+    const [techs, setTechs] = useState([]);
     
     async function SearchCandidates(){
         const response = await api.get(`/candidates/?city=${city}&experience=${experience}&techs=${techs}`);
@@ -99,9 +99,7 @@ export default function User() {
     }
 
     useEffect(() => {
-               
         SearchCandidates();
-        
     });
   
   
@@ -128,6 +126,15 @@ export default function User() {
                                 <option key={year} value={year}>{year}</option>
                                 ))}
                             </select>
+                        </div>
+                        <div className="candidate-select-input">
+                            <input
+                            name="Tecnologias"
+                            type="text"
+                            id="tecnologia"
+                            onChange={e => setTechs(e.target.value)}
+                            value={techs}
+                            />
                         </div>
                         <button className="send-button" type="submit">
                             Buscar

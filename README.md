@@ -53,9 +53,9 @@ Ao clicar em <b>Buscar</b> o JobMatch irá listar os 5 melhores candidatos de ac
 Com as instruções a seguir você terá uma cópia do projeto rodando em sua máquina local para propósitos de testes e desenvolvimento.
 
 ```bash
-git clone https://github.com/Lorenalgm/job-match-api.git
+git clone https://github.com/Lorenalgm/job-match.git
 
-cd job-match-api
+cd job-match
 ```
 
 ### Instalação padrão
@@ -81,13 +81,13 @@ yarn
 #### Inicializando uma instância local
 
 ```bash
-npm run dev
+npm run start
 ```
 
 ou
 
 ```bash
-yarn dev
+yarn start
 ```
 
 #### Teste
@@ -114,9 +114,9 @@ Para guiar a qualidade do código, este repositório foi integrado ao CodeClimat
 - **Lorena Montes** - [Lorenalgm](https://github.com/Lorenalgm)
 
 [forks-shield]: https://img.shields.io/github/forks/Lorenalgm/job-match-api.svg?style=flat-square
-[forks-url]: https://github.com/Lorenalgm/job-match-api/network/members
-[stars-shield]: https://img.shields.io/github/stars/Lorenalgm/job-match-api.svg?style=flat-square
-[stars-url]: https://github.com/Lorenalgm/job-match-api/stargazers
-[issues-shield]: https://img.shields.io/github/issues/Lorenalgm/job-match-api.svg?style=flat-square
-[issues-url]: https://github.com/Lorenalgm/job-match-api/issues
+[forks-url]: https://github.com/Lorenalgm/job-match/network/members
+[stars-shield]: https://img.shields.io/github/stars/Lorenalgm/job-match.svg?style=flat-square
+[stars-url]: https://github.com/Lorenalgm/job-match/stargazers
+[issues-shield]: https://img.shields.io/github/issues/Lorenalgm/job-match.svg?style=flat-square
+[issues-url]: https://github.com/Lorenalgm/job-match/issues
 

@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import './styles.css';
 import api from '../../services/api';
 
@@ -98,11 +98,6 @@ export default function User() {
         SearchCandidates();
     }
 
-    useEffect(() => {
-        SearchCandidates();
-    });
-  
-  
     return (
         <div className="container-candidates">
             <div className="search-section">
